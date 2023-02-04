@@ -21,9 +21,7 @@ public class NameController {
 
     @GetMapping()
     public Name getName() {
-        var name = new Name("John", "Johnson");
-        messagingService.sendName(name, this::addNameSource);
-        return name;
+        return messagingService.receiveName();
     }
 
     @PostMapping(consumes = "application/json")

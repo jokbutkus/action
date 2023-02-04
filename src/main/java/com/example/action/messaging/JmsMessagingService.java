@@ -17,4 +17,8 @@ public class JmsMessagingService {
     public void sendName(Name name, MessagePostProcessor processor) {
         jmsTemplate.convertAndSend(jmsConfig.getNameQueue(), name, processor);
     }
+
+    public Name receiveName() {
+        return (Name) jmsTemplate.receiveAndConvert(jmsConfig.getNameQueue());
+    }
 }
