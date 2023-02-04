@@ -10,4 +10,9 @@ public class HomeController {
     public String home() {
         return "home";
     }
+
+    @GetMapping("/secure")
+    public String secure() {
+        return "secure";
+    }
 }
