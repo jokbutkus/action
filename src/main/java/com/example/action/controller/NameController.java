@@ -1,5 +1,7 @@
 package com.example.action.controller;
 
+import com.example.action.mail.MailService;
+import com.example.action.messaging.JmsMessagingService;
 import com.example.action.model.Name;
 import com.example.action.service.NameService;
 import lombok.RequiredArgsConstructor;
@@ -13,12 +15,21 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import javax.jms.JMSException;
+import javax.jms.Message;
+import java.text.MessageFormat;
+
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(path = "/name")
 public class NameController {
 
     private final NameService nameService;
+    private static final String MAIL_FORMAT = """
+            {0} {1} was posted.
+            Have a good day.""";
+
+    private final MailService mailService;
 
     @GetMapping("/{id}")
     public Mono<Name> getNameById(@PathVariable("id") Long id) {

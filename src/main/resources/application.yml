@@ -1,0 +1,12 @@
+spring:
+  jms:
+    template:
+      default-destination: action.name.queue
+  mail:
+    host: localhost
+    port: 1025
+
+action:
+  jms:
+    name-queue: action.name.queue
+    client-queue: action.client.queue
