@@ -1,6 +1,15 @@
 package com.example.action.model;
 
-import java.io.Serializable;
+import lombok.Data;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
-public record Name(String firstname, String lastname) implements Serializable {
+@Data
+@Table("names")
+public class Name {
+
+    @PrimaryKey
+    private Long id;
+    private String firstname;
+    private String lastname;
 }

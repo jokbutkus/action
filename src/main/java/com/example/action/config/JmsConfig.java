@@ -1,6 +1,7 @@
 package com.example.action.config;
 
 import com.example.action.model.Name;
+import jakarta.jms.Destination;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
@@ -9,7 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 
-import javax.jms.Destination;
 import java.util.HashMap;
 
 @Configuration

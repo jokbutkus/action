@@ -1,0 +1,25 @@
+spring:
+  mvc:
+    log-request-details: true
+  jms:
+    template:
+      default-destination: action.name.queue
+  cassandra:
+    port: 9042
+    contact-points: localhost
+    local-datacenter: datacenter1
+    keyspace-name: action
+    schema-action: recreate-drop-unused
+    entity-base-package: com.example.action.model
+
+basic:
+  load-balancing-policy:
+    local-datacenter: datacenter1
+
+action:
+  jms:
+    name-queue: action.name.queue
+    client-queue: action.client.queue
+
+service:
+  name: db
