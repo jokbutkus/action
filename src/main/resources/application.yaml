@@ -11,6 +11,9 @@ spring:
     keyspace-name: action
     schema-action: recreate-drop-unused
     entity-base-package: com.example.action.model
+  mail:
+    host: localhost
+    port: 1025
 
 basic:
   load-balancing-policy:
